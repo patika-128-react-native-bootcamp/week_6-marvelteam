@@ -1,13 +1,21 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {ActivityIndicator, FlatList, View} from 'react-native';
+
 import styles from './ComicsLayout.styles';
+import ComicsCard from '../ComicsCard';
+import useFetch from '../../hooks/useFetch';
 
 const ComicsLayout = () => {
+  const {loading, error, data, setParams, refetch} = useFetch('comics');
+
+  const renderComics = ({item}) => {
+    return <ComicsCard comicData={item} />;
+  };
+
   return (
     <View style={styles.container}>
-      <Text>
-          Comics Layout
-      </Text>
+      {loading && <ActivityIndicator size="large" />}
+      <FlatList data={data} renderItem={renderComics} numColumns={2} />
     </View>
   );
 };

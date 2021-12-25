@@ -14,8 +14,9 @@ export default StyleSheet.create({
   },
   
   image: {
-    width: width / 2.3,
+    width: width / 2.2,
     height: height / 2.5,
+    justifyContent: 'space-between',
     backgroundColor: colors.transparentLight,
   },
   title_container: {   
@@ -34,6 +35,8 @@ export default StyleSheet.create({
     textAlign: 'center',
   },
   favorite_button: {
+    width: 30,
+    backgroundColor: colors.transparentMedium,
     alignItems: 'flex-end'
   }
 });

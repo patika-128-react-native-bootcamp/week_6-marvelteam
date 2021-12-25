@@ -8,11 +8,25 @@ import Routes from './Routes';
 import Comics from '../pages/Comics';
 import Favorites from '../pages/Favorites';
 import Characters from '../pages/Characters';
-import Detail from '../pages/Detail';
 import colors from '../styles/colors';
+import ComicDetail from '../pages/ComicDetail';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
+
+const CharacterStack = () => {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerTintColor: colors.primaryTextColor,
+        headerStyle: {
+          backgroundColor: colors.primary,
+        },
+      }}>
+      <Stack.Screen name={Routes.CHARACTERS_PAGE} component={Characters} />
+    </Stack.Navigator>
+  );
+};
 
 const ComicsStack = () => {
   return (
@@ -24,7 +38,7 @@ const ComicsStack = () => {
         },
       }}>
       <Stack.Screen name={Routes.COMICS_PAGE} component={Comics} />
-      <Stack.Screen name={Routes.DETAIL_PAGE} component={Detail} />
+      <Stack.Screen name={Routes.COMIC_DETAIL_PAGE} component={ComicDetail} />
     </Stack.Navigator>
   );
 };
@@ -45,7 +59,7 @@ export default function Navigation() {
           },
         }}>
         <Tab.Screen
-          name={Routes.COMICS_STACK}
+          name={Routes.COMIC_STACK}
           component={ComicsStack}
           options={{
             headerShown: false,
@@ -55,9 +69,10 @@ export default function Navigation() {
           }}
         />
         <Tab.Screen
-          name={Routes.CHARACTERS_PAGE}
-          component={Characters}
+          name={Routes.CHARACTER_STACK}
+          component={CharacterStack}
           options={{
+            headerShown: false,
             tabBarIcon: ({color}) => (
               <Icon name="spider" size={20} color={color} />
             ),

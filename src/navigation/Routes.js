@@ -3,5 +3,7 @@ export default {
     CHARACTERS_PAGE: 'Characters',
     FAVORITES_PAGE: 'Favorites',
     DETAIL_PAGE: 'Details',
-    COMICS_STACK: 'Comic Book'
+    CHARACTER_STACK: 'Character',
+    COMIC_DETAIL_PAGE: 'Comic Details',
+    COMIC_STACK: 'Comic Book'
 }

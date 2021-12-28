@@ -9,7 +9,7 @@ const CircleCharacter = ({thumbnail, title}) => {
       <View style={styles.container}>
         <Image style={styles.thumbnail} source={{uri: `${thumbnail}.jpg`}} />
         <View style={styles.title_container}>
-          <Text numberOfLines={2} style={styles.title}>
+          <Text style={styles.title}>
             {title}
           </Text>
         </View>

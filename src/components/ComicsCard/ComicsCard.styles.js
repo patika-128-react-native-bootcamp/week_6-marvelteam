@@ -18,6 +18,8 @@ export default StyleSheet.create({
     height: height / 2.5,
     justifyContent: 'space-between',
     backgroundColor: colors.transparentLight,
+    borderRadius: 10,
+    overflow: 'hidden'
   },
   title_container: {   
     height: 50,

@@ -3,18 +3,18 @@ import colors from '../../styles/colors';
 import fontSize from '../../styles/fontSize';
 import spacing from '../../styles/spacing';
 
-const { width, height } = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 
 export default StyleSheet.create({
   container: {
     padding: spacing.tiny,
-    alignItems: 'center',
+    marginHorizontal: spacing.normal,
     justifyContent: 'center',
     width: width * 0.27,
   },
   thumbnail: {
-    width: width * 0.2,
-    height: width * 0.2,
+    width: width * 0.25,
+    height: width * 0.25,
     borderRadius: 100,
     backgroundColor: colors.primaryExtraLight
   },
@@ -26,7 +26,7 @@ export default StyleSheet.create({
   title: {
     fontSize: fontSize.normal,
     flexWrap: 'wrap',
-    color: colors.primaryLight,
+    color: colors.primary,
     fontWeight: 'bold',
     textAlign: 'center',
   },

@@ -1,13 +1,9 @@
 import React from "react";
-import { Text, View } from "react-native";
+import CharacterLayout from "../../components/CharacterLayout";
 
 
 const Characters = () => {
-    return (
-        <View>
-            <Text>Characters</Text>
-        </View>
-    )
+    return <CharacterLayout />
 }
 
 export default Characters;

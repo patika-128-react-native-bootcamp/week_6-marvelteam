@@ -1,32 +1,35 @@
 import React from 'react';
 import {View, Text, Image, ScrollView, FlatList, ActivityIndicator} from 'react-native';
-import styles from './ComicDetailLayout.style';
-import CircleCharacter from '../CircleCharacter/CircleCharacter';
 
-const ComicDetailLayout = ({comicData, charactersData, loading}) => {
+import styles from './CharacterDetailLayout.style';
+import ComicsCard from '../ComicsCard';
+
+const CharacterDetailLayout = ({comicsData, characterData, loading}) => {
+
+  console.log(comicsData);
 
   const comicsDetail = () => {
     return (
       <View style={styles.inner_container}>
         <Image
           style={styles.thumbnail}
-          source={{uri: `${comicData.thumbnail.path}.jpg`}}
+          source={{uri: `${characterData.thumbnail.path}.jpg`}}
         />
-        <Text style={styles.title}>{comicData.title}</Text>
+        <Text style={styles.title}>{characterData.name}</Text>
         <Text style={styles.description}>
-          {comicData.description == '#N/A' ||
-          comicData.description == '' ||
-          comicData.description == null
+          {characterData.description == '#N/A' ||
+          characterData.description == '' ||
+          characterData.description == null
             ? 'Description Not Found'
-            : comicData.description}
+            : characterData.description}
         </Text>
-        <Text style={styles.title}>Characters</Text>
+        <Text style={styles.title}>Comics</Text>
       </View>
     );
   };
 
   const renderCharacters = ({item}) => {
-    return <CircleCharacter characterData={item} />;
+    return <ComicsCard comicData={item} />;
   };
 
   return (
@@ -35,10 +38,10 @@ const ComicDetailLayout = ({comicData, charactersData, loading}) => {
        {loading && <ActivityIndicator size={30} />}
        <FlatList
         horizontal={true}
-        data={charactersData}
+        data={comicsData}
         renderItem={renderCharacters}       
       />  
     </ScrollView>
   );
 };
-export default ComicDetailLayout;
+export default CharacterDetailLayout;

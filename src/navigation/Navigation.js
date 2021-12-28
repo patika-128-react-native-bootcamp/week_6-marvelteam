@@ -10,6 +10,7 @@ import Favorites from '../pages/Favorites';
 import Characters from '../pages/Characters';
 import colors from '../styles/colors';
 import ComicDetail from '../pages/ComicDetail';
+import CharacterDetail from '../pages/CharacterDetail';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -24,6 +25,7 @@ const CharacterStack = () => {
         },
       }}>
       <Stack.Screen name={Routes.CHARACTERS_PAGE} component={Characters} />
+      <Stack.Screen name={Routes.CHARACTER_DETAIL_PAGE} component={CharacterDetail} />
     </Stack.Navigator>
   );
 };

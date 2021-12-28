@@ -27,7 +27,7 @@ const CharacterLayout = () => {
   };
 
   const renderComics = ({item}) => {
-    return <CircleCharacter thumbnail={item.thumbnail.path} title={item.name} />;
+    return <CircleCharacter characterData={item} />;
   };
 
   

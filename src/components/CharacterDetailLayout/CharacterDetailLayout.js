@@ -6,7 +6,6 @@ import ComicsCard from '../ComicsCard';
 
 const CharacterDetailLayout = ({comicsData, characterData, loading}) => {
 
-  console.log(comicsData);
 
   const comicsDetail = () => {
     return (

@@ -4,6 +4,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import {useTranslation} from 'react-i18next';
 
 import Routes from './Routes';
 import Comics from '../pages/Comics';
@@ -16,11 +17,14 @@ import {ThemeContext} from '../context/ThemeContext/ThemeProvider'
 import dark from '../themes/dark';
 import { useColorScheme } from 'react-native';
 import Settings from '../pages/Settings';
+import { t } from 'i18next';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
 const CharacterStack = () => {
+  const {t} = useTranslation();
+
   return (
     <Stack.Navigator
        screenOptions={{
@@ -30,7 +34,8 @@ const CharacterStack = () => {
         },
       }} >
       <Stack.Screen name={Routes.CHARACTERS_PAGE} component={Characters} />
-      <Stack.Screen name={Routes.CHARACTER_DETAIL_PAGE} component={CharacterDetail} />
+      <Stack.Screen name={Routes.CHARACTER_DETAIL_PAGE} component={CharacterDetail} 
+      options={{title: t('CharacterDetail')}}/>
     </Stack.Navigator>
   );
 };
@@ -45,7 +50,8 @@ const ComicsStack = () => {
         },
       }}>
       <Stack.Screen name={Routes.COMICS_PAGE} component={Comics} />
-      <Stack.Screen name={Routes.COMIC_DETAIL_PAGE} component={ComicDetail} />
+      <Stack.Screen name={Routes.COMIC_DETAIL_PAGE} component={ComicDetail} 
+      options={{title: t('ComicDetail')}}/>
     </Stack.Navigator>
   );
 };
@@ -89,6 +95,7 @@ export default function Navigation() {
             tabBarIcon: ({color}) => (
               <Icon name="book-open-page-variant" size={20} color={color} />
             ),
+            tabBarLabel: t('Comics')
           }}
         />
         <Tab.Screen
@@ -115,6 +122,7 @@ export default function Navigation() {
           name={Routes.SETTINGS_PAGE}
           component={Settings}
           options={{
+            tabBarLabel: t('Settings'),
             tabBarIcon: ({color}) => (
               <Ionicons name="settings-sharp" size={20} color={color} />
             ),

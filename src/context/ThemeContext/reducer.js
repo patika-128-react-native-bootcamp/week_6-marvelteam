@@ -5,11 +5,6 @@ export default function reducer(state, action) {
           ...state,
           theme: action.payload,
         };
-        case 'light':
-        return {
-          ...state,
-          theme: action.payload,
-        };
       default:
         return state;
     }

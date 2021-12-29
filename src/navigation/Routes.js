@@ -7,5 +7,6 @@ export default {
     COMIC_DETAIL_PAGE: 'Comic Details',
     COMIC_STACK: 'Comic Book',
     CHARACTER_DETAIL_PAGE: "Character Details",
-    FAVORITES_STACK: 'Favorite'
+    FAVORITES_STACK: 'Favorite',
+    SETTINGS_PAGE: 'Settings'
 }

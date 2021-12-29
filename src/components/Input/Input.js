@@ -12,6 +12,7 @@ const Input = ({searchText, placeHolder}) => {
           onChangeText={searchText}
           placeholderTextColor={colors.primary}
           placeholder={placeHolder}
+          color={colors.primary}
         />
         <Icon name="magnify" size={25} color={colors.primaryLight}/>
       </View>    

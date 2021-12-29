@@ -1,7 +1,7 @@
 export default {
-    primary: '#29434e',
-    primaryLight: '#546e7a',
-    primaryExtraLight: '#819ca9',
+    primary: '#102027',
+    primaryLight: '#37474f',
+    primaryExtraLight: '#62727b',
     primaryTransparentExtraLight: '#rgba(0,0,0,0.2)',
     primaryTextColor: '#cfd8dc',
     gray: '#62757f',

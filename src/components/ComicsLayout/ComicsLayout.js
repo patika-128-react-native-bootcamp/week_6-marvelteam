@@ -6,7 +6,6 @@ import styles from './ComicsLayout.styles';
 import ComicsCard from '../ComicsCard';
 import useFetch from '../../hooks/useFetch';
 
-
 const ComicsLayout = () => {
   const [search, setSearch] = useState('');
   const {loading, error, data, setParams, refetch} = useFetch('comics');
@@ -30,7 +29,6 @@ const ComicsLayout = () => {
     return <ComicsCard comicData={item} />;
   };
 
-  
   return (
     <View style={styles.container}>
       <Input searchText={getText} placeHolder="Searc for comics.." />

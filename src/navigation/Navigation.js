@@ -1,8 +1,9 @@
-import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
+import React, {useContext} from 'react';
+import {NavigationContainer, DefaultTheme, DarkTheme} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import Routes from './Routes';
 import Comics from '../pages/Comics';
@@ -11,6 +12,10 @@ import Characters from '../pages/Characters';
 import colors from '../styles/colors';
 import ComicDetail from '../pages/ComicDetail';
 import CharacterDetail from '../pages/CharacterDetail';
+import {ThemeContext} from '../context/ThemeContext/ThemeProvider'
+import dark from '../themes/dark';
+import { useColorScheme } from 'react-native';
+import Settings from '../pages/Settings';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -18,12 +23,12 @@ const Stack = createStackNavigator();
 const CharacterStack = () => {
   return (
     <Stack.Navigator
-      screenOptions={{
+       screenOptions={{
         headerTintColor: colors.primaryTextColor,
         headerStyle: {
           backgroundColor: colors.primary,
         },
-      }}>
+      }} >
       <Stack.Screen name={Routes.CHARACTERS_PAGE} component={Characters} />
       <Stack.Screen name={Routes.CHARACTER_DETAIL_PAGE} component={CharacterDetail} />
     </Stack.Navigator>
@@ -60,20 +65,22 @@ const FavoritesStack = () => {
 };
 
 export default function Navigation() {
+  const {theme} = useContext(ThemeContext);
+
   return (
-    <NavigationContainer>
-      <Tab.Navigator
-        screenOptions={{
-          tabBarInactiveTintColor: colors.primaryTextColor,
-          tabBarActiveTintColor: colors.primary,
-          headerTintColor: colors.primaryTextColor,
+    <NavigationContainer theme={theme === 'light' ? DefaultTheme : DarkTheme}>
+      <Tab.Navigator 
+         screenOptions={{
+          tabBarInactiveTintColor: colors.primaryExtraLight,
+          tabBarActiveTintColor: colors.primaryTextColor,
+          headerTintColor: colors.gray,
           tabBarStyle: {
-            backgroundColor: colors.primaryExtraLight
+            backgroundColor: colors.primary
           },
           headerStyle: {
             backgroundColor: colors.primary,
           },
-        }}>
+        }} >
         <Tab.Screen
           name={Routes.COMIC_STACK}
           component={ComicsStack}
@@ -101,6 +108,15 @@ export default function Navigation() {
             headerShown: false,
             tabBarIcon: ({color}) => (
               <Icon name="heart-multiple" size={20} color={color} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name={Routes.SETTINGS_PAGE}
+          component={Settings}
+          options={{
+            tabBarIcon: ({color}) => (
+              <Ionicons name="settings-sharp" size={20} color={color} />
             ),
           }}
         />

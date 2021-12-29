@@ -45,6 +45,20 @@ const ComicsStack = () => {
   );
 };
 
+const FavoritesStack = () => {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerTintColor: colors.primaryTextColor,
+        headerStyle: {
+          backgroundColor: colors.primary,
+        },
+      }}>
+      <Stack.Screen name={Routes.FAVORITES_PAGE} component={Favorites} />
+    </Stack.Navigator>
+  );
+};
+
 export default function Navigation() {
   return (
     <NavigationContainer>
@@ -81,9 +95,10 @@ export default function Navigation() {
           }}
         />
         <Tab.Screen
-          name={Routes.FAVORITES_PAGE}
-          component={Favorites}
+          name={Routes.FAVORITES_STACK}
+          component={FavoritesStack}
           options={{
+            headerShown: false,
             tabBarIcon: ({color}) => (
               <Icon name="heart-multiple" size={20} color={color} />
             ),

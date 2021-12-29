@@ -21,6 +21,7 @@ export default StyleSheet.create({
   title_container: {
     justifyContent: 'center',
     height: 50,
+    flexDirection: 'row',
     padding: spacing.tiny,
   },
   title: {

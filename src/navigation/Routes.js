@@ -6,5 +6,6 @@ export default {
     CHARACTER_STACK: 'Character',
     COMIC_DETAIL_PAGE: 'Comic Details',
     COMIC_STACK: 'Comic Book',
-    CHARACTER_DETAIL_PAGE: "Character Details"
+    CHARACTER_DETAIL_PAGE: "Character Details",
+    FAVORITES_STACK: 'Favorite'
 }

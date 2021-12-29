@@ -1,4 +1,4 @@
-import React, {createContext, useReducer, useEffect} from 'react'
+import React, {createContext, useReducer, useEffect} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {Alert} from 'react-native';
 
